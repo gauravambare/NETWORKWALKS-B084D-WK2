@@ -38,7 +38,7 @@ Nslookup| DNS resolution
 Curl| HTTP headers and server responses
 DNSRecon| DNS enumeration
 Wafw00f| Web Application Firewall detection
-Zenmap| Network scanning and visualization
+Zenmap| Network scanning and topology visualization
 
 ---
 
@@ -169,7 +169,7 @@ The interface provides different scan profiles, host information, Nmap output an
 
 Evidence:
 
-"Zenmap Interface" (./07-zenmap-scan.png)
+"Zenmap Network Scan" (./07-zenmap-scan.png)
 
 ---
 
@@ -178,8 +178,8 @@ Evidence:
 The reconnaissance activities provided information that could be useful for understanding the target website's publicly visible infrastructure.
 
 Observation| Potential Impact
-Domain registration information is publicly available| Provides information about domain ownership and registration
-Website technology details are identifiable| May help attackers identify outdated software
+Domain registration information is publicly available| Provides information about domain registration
+Website technology details are identifiable| May help identify outdated software
 DNS records are publicly accessible| Reveals domain infrastructure information
 Server response headers are visible| Provides information about the web server
 ModSecurity was detected| Indicates the presence of a security protection layer
@@ -216,14 +216,14 @@ Overall, this week's activities improved my understanding of information gatheri
 
 The following screenshots document the tools and activities covered during the practical exercises.
 
-Sr. No.| Tool| Evidence
-1| WHOIS| 01-whois.png
-2| WhatWeb| 02-whatweb.png
-3| Nslookup| 03-nslookup.png
-4| Curl| 04-curl-headers.png
-5| DNSRecon| 05-dnsrecon.png
-6| Wafw00f| 06-wafw00f.png
-7| Zenmap| 07-zenmap-scan.png
+Sr. No.| Tool| Evidence File
+1| WHOIS| "01-whois.png"
+2| WhatWeb| "02-whatweb.png"
+3| Nslookup| "03-nslookup.png"
+4| Curl| "04-curl-headers.png"
+5| DNSRecon| "05-dnsrecon.png"
+6| Wafw00f| "06-wafw00f.png"
+7| Zenmap| "07-zenmap-scan.png"
 
 ---
 
