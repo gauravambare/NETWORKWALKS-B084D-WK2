@@ -1,7 +1,11 @@
-# PENETRATION TESTING REPORT
-### Footprinting & Reconnaissance Phase
+# 🔐 PENETRATION TESTING REPORT
+### Footprinting & Reconnaissance
 
 **W2-PM-FINAL | CYBERSECURITY | NETWORKWALKS**
+
+---
+
+## 📌 Project Information
 
 | Field | Details |
 |---|---|
@@ -11,7 +15,7 @@
 | Date | 12 November 2026 |
 | Operating System | Kali Linux |
 | Target Domain | networkwalks.com |
-| Permission | Authorized educational practical |
+| Practical Focus | Footprinting & Reconnaissance |
 
 ---
 
@@ -19,7 +23,7 @@
 
 All activities documented in this repository were performed as part of an educational cybersecurity practical within the assigned authorized scope.
 
-The techniques and tools demonstrated are intended strictly for educational and research purposes. Unauthorized testing against systems or networks without appropriate permission is prohibited.
+The tools and techniques demonstrated are intended strictly for educational and research purposes. Unauthorized testing against systems or networks without appropriate permission is prohibited.
 
 The author is not responsible for any misuse of the information provided in this repository.
 
@@ -27,22 +31,22 @@ The author is not responsible for any misuse of the information provided in this
 
 ## 2. Introduction
 
-This report documents the practical implementation of footprinting and reconnaissance techniques using multiple Kali Linux tools as part of Week 02 of the Cybersecurity & Ethical Hacking program at Networkwalks.
+This repository documents the practical implementation of footprinting and reconnaissance techniques using multiple Kali Linux tools as part of Week 02 of the Cybersecurity & Ethical Hacking program at Networkwalks.
 
-The objective was to understand how publicly available information about a domain can be collected and analyzed using different reconnaissance tools.
+The primary objective was to understand how publicly available information about a domain can be collected and analyzed using different reconnaissance tools.
 
-During this practical, I used six tools:
+During this practical, I used six Kali Linux tools to gather information about domain registration, DNS records, server configuration, website technologies, HTTP response headers, and Web Application Firewall identification.
 
-- WHOIS
-- WhatWeb
-- Nslookup
-- cURL
-- DNSRecon
-- Wafw00f
+The practical activities included:
 
-Each tool was used to gather a different category of information, including domain registration details, DNS records, server information, web technologies, HTTP response headers, and Web Application Firewall identification.
+- WHOIS – Domain Information Gathering
+- WhatWeb – Website Technology Fingerprinting
+- Nslookup – DNS Lookup
+- cURL – HTTP Header Analysis
+- DNSRecon – DNS Enumeration
+- Wafw00f – Web Application Firewall Detection
 
-The findings were documented with terminal screenshots as practical evidence.
+Each activity was performed through the Kali Linux terminal, and the results were documented with screenshots as practical evidence.
 
 ---
 
@@ -76,20 +80,20 @@ To collect publicly available domain registration information.
 **Observations:**
 
 - Registrar: GoDaddy.com, LLC
-- Domain creation date: 06 November 2019
-- Domain expiry date: 06 November 2027
-- Name servers:
+- Domain Creation Date: 06 November 2019
+- Domain Expiry Date: 06 November 2027
+- Name Servers:
   - NS6135.HOSTGATOR.COM
   - NS6136.HOSTGATOR.COM
 - DNSSEC: Unsigned
 
 **Result:**
 
-WHOIS provided information about domain registration, registrar details, domain status and associated name servers.
+WHOIS provided information about domain registration, registrar details, domain status, and associated name servers.
 
 **Evidence:**
 
-![WHOIS Output](screenshots/01-whois.png)
+![WHOIS Output](./01-whois.png)
 
 ---
 
@@ -113,7 +117,7 @@ To identify the technologies and software used by the target website.
 - Bootstrap: 7.1.4
 - jQuery: 3.7.1
 - Website IP: 192.232.216.135
-- HTTP Status: 200 OK (HTTPS)
+- HTTPS Response: 200 OK
 
 **Result:**
 
@@ -121,7 +125,7 @@ WhatWeb successfully identified several technologies and components associated w
 
 **Evidence:**
 
-![WhatWeb Output](screenshots/02-whatweb.png)
+![WhatWeb Output](./02-whatweb.png)
 
 ---
 
@@ -149,7 +153,7 @@ The command successfully resolved the domain name and returned its associated IP
 
 **Evidence:**
 
-![Nslookup Output](screenshots/03-nslookup.png)
+![Nslookup Output](./03-nslookup.png)
 
 ---
 
@@ -170,8 +174,7 @@ To inspect the HTTP response headers returned by the website.
 - HTTP Response: 200 OK
 - Web Server: Apache
 - Content-Type: text/html
-- Server technology information was exposed.
-- WordPress REST API endpoint was identified: `/wp-json/`
+- WordPress REST API endpoint: `/wp-json/`
 - Additional security and caching headers were observed.
 
 **Result:**
@@ -180,7 +183,7 @@ cURL successfully retrieved the HTTP response headers and provided information a
 
 **Evidence:**
 
-![cURL Output](screenshots/04-curl-headers.png)
+![cURL Output](./04-curl-headers.png)
 
 ---
 
@@ -207,19 +210,19 @@ DNSRecon identified the following record categories:
 - TXT Records
 - SRV Records
 
-The tool also identified DNS server software version information.
+Additional observations:
 
-**Additional Observation:**
-
-The DNSSEC query returned no answer during enumeration.
+- DNS server software version information was identified.
+- The DNSSEC query returned no answer.
+- Total records reported: 8.
 
 **Result:**
 
-DNSRecon successfully completed general DNS enumeration and reported 8 records found.
+DNSRecon successfully completed general DNS enumeration and provided information about the domain's DNS infrastructure.
 
 **Evidence:**
 
-![DNSRecon Output](screenshots/05-dnsrecon.png)
+![DNSRecon Output](./05-dnsrecon.png)
 
 ---
 
@@ -247,23 +250,23 @@ Wafw00f identified ModSecurity (SpiderLabs) as the Web Application Firewall prot
 
 **Evidence:**
 
-![Wafw00f Output](screenshots/06-wafw00f.png)
+![Wafw00f Output](./06-wafw00f.png)
 
 ---
 
 ## 5. Risk Analysis / Impact
 
-Based on the information collected during reconnaissance, the following potential observations were identified.
+Based on the information collected during reconnaissance, the following potential security observations were identified.
 
 | No. | Finding | Potential Impact | Risk Level |
 |---|---|---|---|
 | 1 | Website technology information exposed | Helps identify software and technologies for further security review. | Medium |
-| 2 | Server IP address identifiable | Provides information about the hosting infrastructure. | Low |
-| 3 | HTTP headers expose technical information | May assist technology fingerprinting. | Low |
+| 2 | Server IP address identifiable | Provides information about hosting infrastructure. | Low |
+| 3 | HTTP technical information exposed | May assist technology fingerprinting. | Low |
 | 4 | WAF technology identifiable | Reveals information about the website's security architecture. | Low |
 | 5 | DNS infrastructure information exposed | Helps build a broader infrastructure profile. | Medium |
 
-**Note:** These observations do not confirm the presence of security vulnerabilities. No exploitation or vulnerability validation was performed.
+**Note:** These are observations from reconnaissance activities, not confirmed vulnerabilities. No exploitation or vulnerability validation was performed.
 
 ---
 
@@ -272,7 +275,7 @@ Based on the information collected during reconnaissance, the following potentia
 Based on the observations, the following security improvements are recommended:
 
 1. Regularly review publicly exposed website technology information.
-2. Keep CMS platforms, plugins and server software updated.
+2. Keep CMS platforms, plugins, and server software updated.
 3. Review HTTP response headers to minimize unnecessary information disclosure.
 4. Regularly review publicly accessible DNS records.
 5. Properly configure and monitor the Web Application Firewall.
@@ -289,44 +292,52 @@ I learned how WHOIS provides domain registration information, WhatWeb identifies
 
 These exercises helped me understand the importance of reconnaissance in cybersecurity and how publicly available information can provide valuable insights into a target's digital infrastructure.
 
-I also gained practical experience using Kali Linux and interpreting the output generated by different cybersecurity tools.
+I also gained practical experience using Kali Linux, executing reconnaissance commands, interpreting terminal outputs, and documenting technical findings.
 
 ---
 
 ## 8. Evidence Collected
 
-All practical screenshots are available in the `screenshots/` directory.
+All practical screenshots are included in this repository.
 
-The screenshots demonstrate the actual commands executed and their corresponding outputs.
+| No. | Screenshot | Tool |
+|---|---|---|
+| 01 | 01-whois.png | WHOIS |
+| 02 | 02-whatweb.png | WhatWeb |
+| 03 | 03-nslookup.png | Nslookup |
+| 04 | 04-curl-headers.png | cURL |
+| 05 | 05-dnsrecon.png | DNSRecon |
+| 06 | 06-wafw00f.png | Wafw00f |
 
 ---
 
 ## 9. Repository Structure
 
 ```text
-WEEK-02-PENETRATION-TESTING/
+Week-02-Penetration-Testing/
 │
 ├── README.md
-├── screenshots/
-│   ├── 01-whois.png
-│   ├── 02-whatweb.png
-│   ├── 03-nslookup.png
-│   ├── 04-curl-headers.png
-│   ├── 05-dnsrecon.png
-│   └── 06-wafw00f.png
 │
-└── report/
-    └── Week-02-Penetration-Testing.pdf
+├── 01-whois.png
+├── 02-whatweb.png
+├── 03-nslookup.png
+├── 04-curl-headers.png
+├── 05-dnsrecon.png
+└── 06-wafw00f.png
 ```
 
 ---
 
-**Author:** Gaurav Vijay Ambare
+## 👤 Author
 
-**Program:** Cybersecurity & Ethical Hacking
+**Gaurav Vijay Ambare**
+
+Cybersecurity & Ethical Hacking Trainee
 
 **Organization:** Networkwalks
 
-**Week:** 02
+**Program:** Cybersecurity Program | Week 02
 
-*Educational and research purposes only.*
+---
+
+*This repository is intended for educational and research purposes only.*
