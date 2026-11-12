@@ -1,15 +1,16 @@
-Networkwalks – Week 02: Footprinting, Reconnaissance & Network Scanning
 
-Name: Gaurav Vijay Ambare
-Batch: B084D
-Program: Cybersecurity & Ethical Hacking
-Organization: Networkwalks
-Week: 02
-Date: 12 November 2026
+# Networkwalks – Week 02: Footprinting, Reconnaissance & Network Scanning
+
+**Name:** Gaurav Vijay Ambare  
+**Batch:** B084D  
+**Program:** Cybersecurity & Ethical Hacking  
+**Organization:** Networkwalks  
+**Week:** 02  
+**Date:** 12 November 2026
 
 ---
 
-1. Liability Disclaimer
+## 1. Liability Disclaimer
 
 This report has been prepared for educational purposes as part of the Networkwalks Cybersecurity & Ethical Hacking internship program.
 
@@ -19,63 +20,64 @@ All testing should be performed only on systems and networks for which proper au
 
 ---
 
-2. Introduction
+## 2. Introduction
 
 During Week 02 of the internship, I explored various footprinting, reconnaissance and network scanning techniques using Kali Linux tools.
 
 The objective was to understand how publicly available information about a domain can be collected and analyzed. I explored DNS information, HTTP response headers, website technologies and Web Application Firewall detection.
 
-The practical activities involved WHOIS, WhatWeb, Nslookup, Curl, DNSRecon, Wafw00f and Zenmap.
+The practical activities involved using WHOIS, WhatWeb, Nslookup, Curl, DNSRecon, Wafw00f and Zenmap.
 
 ---
 
-3. Tools Used
+## 3. Tools Used
 
-Tool| Purpose
-WHOIS| Domain registration information
-WhatWeb| Website technology identification
-Nslookup| DNS resolution
-Curl| HTTP header analysis
-DNSRecon| DNS enumeration
-Wafw00f| Web Application Firewall detection
-Zenmap| Network scanning and topology visualization
+| Tool | Purpose |
+|---|---|
+| WHOIS | Domain registration information |
+| WhatWeb | Website technology identification |
+| Nslookup | DNS resolution |
+| Curl | HTTP header analysis |
+| DNSRecon | DNS enumeration |
+| Wafw00f | Web Application Firewall detection |
+| Zenmap | Network scanning and topology visualization |
 
 ---
 
-4. Activities Performed
+## 4. Activities Performed
 
-4.1 WHOIS – Domain Information Gathering
+### 4.1 WHOIS – Domain Information Gathering
 
-WHOIS was used to collect domain registration information for "networkwalks.com".
+WHOIS was used to collect domain registration information for `networkwalks.com`.
 
-Command:
-
+**Command:**
+```bash
 whois networkwalks.com
+```
 
-Observations:
-
+**Observations:**
 - Registrar: GoDaddy.com, LLC
 - Creation Date: 06 November 2019
 - Expiry Date: 06 November 2027
 - Name Servers: NS6135.HOSTGATOR.COM and NS6136.HOSTGATOR.COM
 - DNSSEC: Unsigned
 
-Evidence:
+**Evidence:**
 
-"WHOIS Output" (./01-whois.png)
+![WHOIS Output](./01-whois.png)
 
 ---
 
-4.2 WhatWeb – Website Technology Identification
+### 4.2 WhatWeb – Website Technology Identification
 
 WhatWeb was used to identify the technologies and frameworks used by the target website.
 
-Command:
-
+**Command:**
+```bash
 whatweb https://networkwalks.com
+```
 
-Observations:
-
+**Observations:**
 - Web Server: Apache
 - CMS: WordPress
 - WordPress Version: 7.1.4
@@ -83,62 +85,62 @@ Observations:
 - Website IP: 192.232.216.135
 - HTTP to HTTPS redirection was observed.
 
-Evidence:
+**Evidence:**
 
-"WhatWeb Output" (./02-whatweb.png)
+![WhatWeb Output](./02-whatweb.png)
 
 ---
 
-4.3 Nslookup – DNS Enumeration
+### 4.3 Nslookup – DNS Enumeration
 
 Nslookup was used to resolve the domain name into its corresponding IP address.
 
-Command:
-
+**Command:**
+```bash
 nslookup networkwalks.com
+```
 
-Observations:
-
+**Observations:**
 - DNS Server: 8.8.8.8
 - Resolved IP Address: 192.232.216.135
 
-Evidence:
+**Evidence:**
 
-"Nslookup Output" (./03-nslookup.png)
+![Nslookup Output](./03-nslookup.png)
 
 ---
 
-4.4 Curl – HTTP Header Analysis
+### 4.4 Curl – HTTP Header Analysis
 
 Curl was used to inspect HTTP response headers and understand how the web server responds to requests.
 
-Command:
-
+**Command:**
+```bash
 curl -I https://networkwalks.com
+```
 
-Observations:
-
+**Observations:**
 - HTTP Response: 200 OK
 - Web Server: Apache
 - WordPress REST API endpoint was observed.
 - HTTP response headers were examined.
 
-Evidence:
+**Evidence:**
 
-"Curl Output" (./04-curl-headers.png)
+![Curl Output](./04-curl-headers.png)
 
 ---
 
-4.5 DNSRecon – DNS Enumeration
+### 4.5 DNSRecon – DNS Enumeration
 
 DNSRecon was used to collect DNS records associated with the target domain.
 
-Command:
-
+**Command:**
+```bash
 dnsrecon -d networkwalks.com
+```
 
-Observations:
-
+**Observations:**
 - SOA records were identified.
 - NS records were identified.
 - MX records were identified.
@@ -147,60 +149,61 @@ Observations:
 - DNSSEC query returned no answer.
 - A total of 8 DNS records were reported.
 
-Evidence:
+**Evidence:**
 
-"DNSRecon Output" (./05-dnsrecon.png)
+![DNSRecon Output](./05-dnsrecon.png)
 
 ---
 
-4.6 Wafw00f – Web Application Firewall Detection
+### 4.6 Wafw00f – Web Application Firewall Detection
 
 Wafw00f was used to identify whether the target website was protected by a Web Application Firewall.
 
-Command:
-
+**Command:**
+```bash
 wafw00f https://networkwalks.com
+```
 
-Observations:
-
+**Observations:**
 - ModSecurity was identified.
 - Detection was associated with SpiderLabs.
 - Two HTTP requests were used during detection.
 
-Evidence:
+**Evidence:**
 
-"Wafw00f Output" (./06-wafw00f.png)
+![Wafw00f Output](./06-wafw00f.png)
 
 ---
 
-4.7 Zenmap – Network Scanning and Topology Visualization
+### 4.7 Zenmap – Network Scanning and Topology Visualization
 
 Zenmap is the graphical interface of Nmap. It provides a visual interface for network scanning, host discovery and topology visualization.
 
 The interface includes scan profiles, host information, Nmap output and a graphical topology view.
 
-Evidence:
+**Evidence:**
 
-"Zenmap Network Scan" (./07-zenmap-scan.png)
+![Zenmap Network Scan](./07-zenmap-scan.png)
 
 ---
 
-5. Risk Analysis and Impact
+## 5. Risk Analysis and Impact
 
 The reconnaissance activities provided information that could be useful for understanding the target website's publicly visible infrastructure.
 
-Observation| Potential Impact
-Public domain registration information| Provides domain registration details
-Identifiable website technologies| May help identify outdated software
-Public DNS records| Reveals domain infrastructure information
-Visible HTTP response headers| Provides information about the web server
-ModSecurity detection| Indicates an existing security protection layer
+| Observation | Potential Impact |
+|---|---|
+| Public domain registration information | Provides domain registration details |
+| Identifiable website technologies | May help identify outdated software |
+| Public DNS records | Reveals domain infrastructure information |
+| Visible HTTP response headers | Provides information about the web server |
+| ModSecurity detection | Indicates an existing security protection layer |
 
-Note: These observations do not confirm the presence of exploitable vulnerabilities.
+**Note:** These observations do not confirm the presence of exploitable vulnerabilities.
 
 ---
 
-6. Recommendations
+## 6. Recommendations
 
 1. Keep website software, CMS platforms and plugins updated.
 2. Review DNS records periodically.
@@ -212,7 +215,7 @@ Note: These observations do not confirm the presence of exploitable vulnerabilit
 
 ---
 
-7. Conclusion
+## 7. Conclusion
 
 During Week 02, I gained practical exposure to footprinting, reconnaissance and network scanning concepts using Kali Linux tools.
 
@@ -224,19 +227,19 @@ Overall, these activities improved my understanding of information gathering tec
 
 ---
 
-8. Evidence Collection
+## 8. Evidence Collection
 
 The following screenshots are included as supporting evidence:
 
-1. WHOIS – "01-whois.png"
-2. WhatWeb – "02-whatweb.png"
-3. Nslookup – "03-nslookup.png"
-4. Curl – "04-curl-headers.png"
-5. DNSRecon – "05-dnsrecon.png"
-6. Wafw00f – "06-wafw00f.png"
-7. Zenmap – "07-zenmap-scan.png"
+1. WHOIS – `01-whois.png`
+2. WhatWeb – `02-whatweb.png`
+3. Nslookup – `03-nslookup.png`
+4. Curl – `04-curl-headers.png`
+5. DNSRecon – `05-dnsrecon.png`
+6. Wafw00f – `06-wafw00f.png`
+7. Zenmap – `07-zenmap-scan.png`
 
 ---
 
-Repository: NETWORKWALKS-B084D-WK2
-Program: Cybersecurity & Ethical Hacking – Networkwalks
+**Repository:** NETWORKWALKS-B084D-WK2  
+**Program:** Cybersecurity & Ethical Hacking – Networkwalks
