@@ -15,7 +15,7 @@ This report has been prepared for educational purposes as part of the Networkwal
 
 The activities documented in this report focus on information gathering, footprinting, reconnaissance and network scanning concepts.
 
-All testing should be performed only on systems and networks for which proper authorization has been obtained. The information presented should not be used for unauthorized access or malicious activities.
+All testing should be performed only on systems and networks for which proper authorization has been obtained.
 
 ---
 
@@ -23,9 +23,9 @@ All testing should be performed only on systems and networks for which proper au
 
 During Week 02 of the internship, I explored various footprinting, reconnaissance and network scanning techniques using Kali Linux tools.
 
-The primary objective was to understand how publicly available information about a domain can be collected and analyzed. I also explored DNS information, HTTP response headers, web technologies and web application firewall detection.
+The objective was to understand how publicly available information about a domain can be collected and analyzed. I explored DNS information, HTTP response headers, website technologies and Web Application Firewall detection.
 
-The practical activities involved using tools such as WHOIS, WhatWeb, Nslookup, Curl, DNSRecon and Wafw00f. I also explored Zenmap for network scanning and topology visualization.
+The practical activities involved WHOIS, WhatWeb, Nslookup, Curl, DNSRecon, Wafw00f and Zenmap.
 
 ---
 
@@ -35,7 +35,7 @@ Tool| Purpose
 WHOIS| Domain registration information
 WhatWeb| Website technology identification
 Nslookup| DNS resolution
-Curl| HTTP headers and server responses
+Curl| HTTP header analysis
 DNSRecon| DNS enumeration
 Wafw00f| Web Application Firewall detection
 Zenmap| Network scanning and topology visualization
@@ -64,6 +64,8 @@ Evidence:
 
 "WHOIS Output" (./01-whois.png)
 
+---
+
 4.2 WhatWeb – Website Technology Identification
 
 WhatWeb was used to identify the technologies and frameworks used by the target website.
@@ -85,6 +87,8 @@ Evidence:
 
 "WhatWeb Output" (./02-whatweb.png)
 
+---
+
 4.3 Nslookup – DNS Enumeration
 
 Nslookup was used to resolve the domain name into its corresponding IP address.
@@ -101,6 +105,8 @@ Observations:
 Evidence:
 
 "Nslookup Output" (./03-nslookup.png)
+
+---
 
 4.4 Curl – HTTP Header Analysis
 
@@ -120,6 +126,8 @@ Observations:
 Evidence:
 
 "Curl Output" (./04-curl-headers.png)
+
+---
 
 4.5 DNSRecon – DNS Enumeration
 
@@ -143,6 +151,8 @@ Evidence:
 
 "DNSRecon Output" (./05-dnsrecon.png)
 
+---
+
 4.6 Wafw00f – Web Application Firewall Detection
 
 Wafw00f was used to identify whether the target website was protected by a Web Application Firewall.
@@ -154,18 +164,20 @@ wafw00f https://networkwalks.com
 Observations:
 
 - ModSecurity was identified.
-- The detection was associated with SpiderLabs.
+- Detection was associated with SpiderLabs.
 - Two HTTP requests were used during detection.
 
 Evidence:
 
 "Wafw00f Output" (./06-wafw00f.png)
 
+---
+
 4.7 Zenmap – Network Scanning and Topology Visualization
 
-Zenmap is the graphical interface of Nmap. It helps users perform network scans, identify hosts and visualize network topology.
+Zenmap is the graphical interface of Nmap. It provides a visual interface for network scanning, host discovery and topology visualization.
 
-The interface provides different scan profiles, host information, Nmap output and topology visualization.
+The interface includes scan profiles, host information, Nmap output and a graphical topology view.
 
 Evidence:
 
@@ -178,11 +190,11 @@ Evidence:
 The reconnaissance activities provided information that could be useful for understanding the target website's publicly visible infrastructure.
 
 Observation| Potential Impact
-Domain registration information is publicly available| Provides information about domain registration
-Website technology details are identifiable| May help identify outdated software
-DNS records are publicly accessible| Reveals domain infrastructure information
-Server response headers are visible| Provides information about the web server
-ModSecurity was detected| Indicates the presence of a security protection layer
+Public domain registration information| Provides domain registration details
+Identifiable website technologies| May help identify outdated software
+Public DNS records| Reveals domain infrastructure information
+Visible HTTP response headers| Provides information about the web server
+ModSecurity detection| Indicates an existing security protection layer
 
 Note: These observations do not confirm the presence of exploitable vulnerabilities.
 
@@ -208,22 +220,21 @@ I learned how to collect domain registration information, identify website techn
 
 I also explored Zenmap and its graphical interface for network scanning and topology visualization.
 
-Overall, this week's activities improved my understanding of information gathering techniques and the initial stages of penetration testing.
+Overall, these activities improved my understanding of information gathering techniques and the initial stages of penetration testing.
 
 ---
 
 8. Evidence Collection
 
-The following screenshots document the tools and activities covered during the practical exercises.
+The following screenshots are included as supporting evidence:
 
-Sr. No.| Tool| Evidence File
-1| WHOIS| "01-whois.png"
-2| WhatWeb| "02-whatweb.png"
-3| Nslookup| "03-nslookup.png"
-4| Curl| "04-curl-headers.png"
-5| DNSRecon| "05-dnsrecon.png"
-6| Wafw00f| "06-wafw00f.png"
-7| Zenmap| "07-zenmap-scan.png"
+1. WHOIS – "01-whois.png"
+2. WhatWeb – "02-whatweb.png"
+3. Nslookup – "03-nslookup.png"
+4. Curl – "04-curl-headers.png"
+5. DNSRecon – "05-dnsrecon.png"
+6. Wafw00f – "06-wafw00f.png"
+7. Zenmap – "07-zenmap-scan.png"
 
 ---
 
