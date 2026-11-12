@@ -330,7 +330,7 @@ Week-02-Penetration-Testing/
 
 ## 👤 Author
 
-**Gaurav Vijay Ambare**
+**Gaurav Ambare**
 
 Cybersecurity & Ethical Hacking Trainee
 
